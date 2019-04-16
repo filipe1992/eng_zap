@@ -24,12 +24,6 @@ def get_login(token, url='http://169.61.31.222:8118/'):
     resposta = requests.get(url+'login/get', headers=cabeca)
     
     return BytesIO(resposta.content)
-    
-def gerar_js_code(token, url='http://169.61.31.222:8118/'):
-    code = '''
-    
-    '''
-    return code
 
 def index(request, token):
     #'''
@@ -42,9 +36,7 @@ def index(request, token):
 def index_01(request):
     token = get_token()
     print(token)
-    return render(request, 'init.html',{'token': token,
-                                        'numero': '91981440196',
-                                        'text': 'teste de envio de dados'})
+    return render(request, 'init.html',{'token': token})
     #HttpResponse(token)
     #return index(request, token)
 
