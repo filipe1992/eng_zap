@@ -1,0 +1,72 @@
+<h1>Acesse Como Whatsapp Web</h1>
+
+<body>
+<a href="http://127.0.0.1:8000/engzap/{{ token }}" target="_blank">
+	<img id="img" src="http://127.0.0.1:8000/engzap/{{ token }}" width="300" height="300">
+</a>
+<table style="width:100%">
+	 <tr> Seu token: {{ token }}</tr>
+    <tr>
+        <td>
+            <table style="width:100%" border="1">
+                <tr>
+                     <th>Envio de mensagem de texto</th>
+                </tr>    
+                <tr>
+                    <td><textarea rows="15" cols="150">
+                    
+$url = 'http://169.61.31.222:8118/message/text';
+$data = array('remotejid' => '{{ numero }}', 'text' => '{{ text }}');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+                    </textarea></td>
+                </tr>
+            </table>
+        
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width:100%" border="1">
+                <tr>
+                     <th>Envio de mensagem de texto</th>
+                </tr>    
+                <tr>
+                    <td><textarea rows="15" cols="150">
+                    
+$url = 'http://169.61.31.222:8118/message/text';
+$data = array('remotejid' => '{{ numero }}', 'text' => '{{ text }}');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+                    </textarea></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table border="1">
+                <tr>
+                     <th>Trigo</th>
+                </tr>    
+                <tr>
+                    <td><textarea rows="4" cols="50"> texto </textarea></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
