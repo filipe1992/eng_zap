@@ -36,13 +36,13 @@ $result = file_get_contents($url, false, $context);
         <td>
             <table style="width:100%" border="1">
                 <tr>
-                     <th>Envio de mensagem de texto</th>
+                     <th>Envio de Imagens</th>
                 </tr>    
                 <tr>
                     <td><textarea rows="15" cols="150">
                     
-$url = 'http://169.61.31.222:8118/message/text';
-$data = array('remotejid' => '{{ numero }}', 'text' => '{{ text }}');
+$url = 'http://169.61.31.222:8118/message/image';
+$data = array('remotejid' => 'numero', 'content' => 'dados', 'caption' => 'dados');
 $options = array(
     'http' => array(
         'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
@@ -59,12 +59,75 @@ $result = file_get_contents($url, false, $context);
     </tr>
     <tr>
         <td>
-            <table border="1">
+            <table style="width:100%" border="1">
                 <tr>
-                     <th>Trigo</th>
+                     <th>Envio de Videos</th>
                 </tr>    
                 <tr>
-                    <td><textarea rows="4" cols="50"> texto </textarea></td>
+                    <td><textarea rows="15" cols="150">
+                    
+$url = 'http://169.61.31.222:8118/message/video';
+$data = array('remotejid' => 'numero', 'content' => 'dados', 'caption' => 'dados');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+                    </textarea></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table style="width:100%" border="1">
+                <tr>
+                     <th>Envio de Audio</th>
+                </tr>    
+                <tr>
+                    <td><textarea rows="15" cols="150">
+                    
+$url = 'http://169.61.31.222:8118/message/audio';
+$data = array('remotejid' => 'numero', 'content' => 'dados', 'caption' => 'dados');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+                    </textarea></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+   <tr>
+        <td>
+            <table style="width:100%" border="1">
+                <tr>
+                     <th>Envio de Arquivos</th>
+                </tr>    
+                <tr>
+                    <td><textarea rows="15" cols="150">
+                    
+$url = 'http://169.61.31.222:8118/message/document';
+$data = array('remotejid' => 'numero', 'content' => 'dados', 'caption' => 'dados');
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n Authorization: Bearer {{ token }}",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+                    </textarea></td>
                 </tr>
             </table>
         </td>
